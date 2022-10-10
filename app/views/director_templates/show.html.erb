@@ -58,3 +58,31 @@
     <%= time_ago_in_words(@the_director.updated_at) %> ago
   </dd>
 </dl>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <% @filmography.each do |a_film| %>
+    <tr>
+      <td>
+        <%= a_film.id %>
+      </td>
+      <td>
+        <img src="http://robohash.org/<%= a_film.image %>?set=set4">
+      </td>
+      <td>
+        <%= a_film.title %>
+      </td>
+      <td>
+        <%= a_film.year %>
+      </td>
+      <td>
+        <% d = Director.where({ :id => a_film.director_id}).first %>
+        <%= d.name %>
+      </td>
+      <td>
+        <a href="">Show details</a>
+      </td>
+    </tr>
+  <% end  %>
+</table>
