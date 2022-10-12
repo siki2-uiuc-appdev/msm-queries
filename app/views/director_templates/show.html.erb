@@ -16,11 +16,12 @@
 <hr>
 
 <dl>
+
   <dt>
-    <%= @the_director.name %>
+    Name
   </dt>
   <dd>
-    
+    <%= @the_director.name %>
   </dd>
 
   <dt>
@@ -81,7 +82,7 @@
         <%= d.name %>
       </td>
       <td>
-        <a href="">Show details</a>
+        <a href="/movies/<%= a_film.id %>">Show details</a>
       </td>
     </tr>
   <% end  %>
