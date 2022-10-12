@@ -1,14 +1,16 @@
 <h1>List of all movies</h1>
 
 <table border="1">
-<% @list_of_movies.each do |movie| %>
+
   <tr>
     <th>ID</th>
     <th>Image</th>
     <th>Title</th>
     <th>Year</th>
     <th>Director</th>
+    <th></th>
   </tr>
+  <% @list_of_movies.each do |movie| %>
   <tr>
     <td><%= movie.id %></td>
     <td>
