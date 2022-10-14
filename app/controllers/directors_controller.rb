@@ -29,4 +29,17 @@ class DirectorsController < ApplicationController
 
     render({ :template => "director_templates/show.html.erb"})
   end
+
+  def delete_director
+    director_id = params.fetch("id")
+
+    director_to_delete = Director.where({:id => director_id}).first
+
+    if director_to_delete
+      director_to_delete.destroy
+    end
+
+    index
+  end
+  
 end

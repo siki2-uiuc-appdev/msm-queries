@@ -15,4 +15,18 @@ class MoviesController < ApplicationController
     render({ :template => "movie_templates/show.html.erb"})
   end
 
+  def delete_movie
+    movie_id = params.fetch("id")
+
+    movie_to_delete = Movie.where({ :id => movie_id }).first
+
+    if(movie_to_delete)
+      movie_to_delete.destroy
+    end
+
+    index
+
+  end
+  
+
 end

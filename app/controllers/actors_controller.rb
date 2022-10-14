@@ -15,4 +15,17 @@ class ActorsController < ApplicationController
 
     render({ :template => "actor_templates/show.html.erb"})
   end
+
+  def delete_actor
+    @id = params.fetch("id")
+    
+    actor_to_delete = Actor.where( {:id => @id}).first
+
+    if(actor_to_delete)
+      actor_to_delete.destroy
+    end
+
+    index
+  end
+  
 end
