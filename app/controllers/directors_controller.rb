@@ -41,8 +41,19 @@ class DirectorsController < ApplicationController
   end
 
   def create_director
+    new_director = Director.new
+    new_director.name = params.fetch("query_name")
+    new_director.dob = params.fetch("query_dob")
+    new_director.bio = params.fetch("query_bio")
+    new_director.image = params.fetch("query_image")
 
-    render({ :template => "director_templates/create_director.html.erb"})
+    already_exists = Director.where({ :name => new_director.name}).where({:dob => new_director.dob}).first
+    
+    if !(already_exists)
+      new_director.save
+    end
+
+    index
   end
 
 end
