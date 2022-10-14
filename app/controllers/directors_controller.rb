@@ -32,14 +32,17 @@ class DirectorsController < ApplicationController
 
   def delete_director
     director_id = params.fetch("id")
-
     director_to_delete = Director.where({:id => director_id}).first
 
     if director_to_delete
       director_to_delete.destroy
     end
-
     index
   end
-  
+
+  def create_director
+
+    render({ :template => "director_templates/create_director.html.erb"})
+  end
+
 end
